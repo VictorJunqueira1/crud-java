@@ -2,16 +2,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GerenciadorDeProdutos {
-    private List<Produto> produtos = new ArrayList<>();
+    private List<Produto> produtos = new ArrayList<>(
+
+            );
 
     // Create
-    public boolean adicionarProduto(Produto produto) {
-        return produtos.add(produto);
+    public void adicionarProduto(Produto produto) {
+        for (int i = 0; i < this.produtos.size(); i++) {
+            if (this.produtos.get(i).id == produto.id){
+                System.out.println("Produto já existente.");
+                return;
+            }
+        }
+        boolean operationSuccess = produtos.add(produto);
+        if (operationSuccess) {
+            System.out.println("Produto adicionado com sucesso.");
+        } else {
+            System.out.println("Erro ao adicionar.");
+        }
     }
 
     // Read
-    public List<Produto> listarProdutos() {
-        return produtos;
+    public void listarProdutos() {
+        for (int j = 0; j < this.produtos.size(); j++){
+            System.out.println("[" + this.produtos.get(j).nome + ", " + "R$ " + this.produtos.get(j).preco + " - " + "ID: " + this.produtos.get(j).id + "]");
+        }
     }
 
     // Update

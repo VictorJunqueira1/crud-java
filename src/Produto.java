@@ -1,7 +1,7 @@
 public class Produto {
-    private int id;
-    private String nome;
-    private double preco;
+    public int id;
+    public String nome;
+    public double preco;
 
     public Produto(int id, String nome, double preco) {
         this.id = id;
@@ -9,8 +9,7 @@ public class Produto {
         this.preco = preco;
     }
 
-    @Override
-    public String toString() {
+    public String show() {
         return "Produto{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
