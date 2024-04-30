@@ -2,9 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GerenciadorDeProdutos {
-    private List<Produto> produtos = new ArrayList<>(
-
-            );
+    private List<Produto> produtos = new ArrayList<>();
 
     // Create
     public void adicionarProduto(Produto produto) {
