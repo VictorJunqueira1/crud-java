@@ -8,7 +8,7 @@ public class GerenciadorDeProdutos {
     public void adicionarProduto(Produto produto) {
         for (int i = 0; i < this.produtos.size(); i++) {
             if (this.produtos.get(i).id == produto.id){
-                System.out.println("Produto já existente.");
+                System.out.println("\n" + "Produto já existente.");
                 return;
             }
         }
@@ -22,8 +22,14 @@ public class GerenciadorDeProdutos {
 
     // Read
     public void listarProdutos() {
-        for (int j = 0; j < this.produtos.size(); j++){
-            System.out.println("[" + this.produtos.get(j).nome + ", " + "R$ " + this.produtos.get(j).preco + " - " + "ID: " + this.produtos.get(j).id + "]");
+        if (produtos.isEmpty()) {
+            System.out.println("Sem produtos...");
+        } else {
+            for (int j = 0; j < produtos.size(); j++) {
+                System.out.println("Nome do produto: " + produtos.get(j).nome + "\n" +
+                        "Preço: R$ " + produtos.get(j).preco + "\n" +
+                        "ID: " + produtos.get(j).id);
+            }
         }
     }
 

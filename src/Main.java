@@ -7,7 +7,7 @@ public class Main {
         GerenciadorDeProdutos gerenciador = new GerenciadorDeProdutos();
         Scanner scanner = new Scanner(System.in);
 
-        int opcao;
+        int opcao = -1;
         do {
             System.out.println("\nO que você gostaria de fazer?");
             System.out.println("1. Adicionar produto");
@@ -16,7 +16,14 @@ public class Main {
             System.out.println("4. Deletar produto");
             System.out.println("0. Sair");
             System.out.print("Escolha uma opção: ");
-            opcao = scanner.nextInt();
+
+            if (scanner.hasNextInt()) {
+                opcao = scanner.nextInt();
+            } else {
+                scanner.next(); // consome entrada inválida
+                System.out.println("Por favor, digite um número válido.");
+                continue;
+            }
 
             switch (opcao) {
                 case 1:
@@ -30,7 +37,7 @@ public class Main {
                     gerenciador.adicionarProduto(new Produto(id, nome, preco));
                     break;
                 case 2:
-                    System.out.println("\nLista de produtos:");
+                    System.out.println("\n" + "Lista de produtos: " + "\n");
                     gerenciador.listarProdutos();
                     break;
                 case 3:
@@ -51,7 +58,7 @@ public class Main {
                     gerenciador.deletarProduto(indiceDeletar);
                     break;
                 case 0:
-                    System.out.println("Saindo do programa. Até mais!");
+                    System.out.println("Saindo do programa... Até mais!");
                     break;
                 default:
                     System.out.println("Opção inválida!");
