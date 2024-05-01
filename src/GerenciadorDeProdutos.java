@@ -29,6 +29,7 @@ public class GerenciadorDeProdutos {
                 System.out.println("Nome do produto: " + produtos.get(j).nome + "\n" +
                         "Preço: R$ " + produtos.get(j).preco + "\n" +
                         "ID: " + produtos.get(j).id);
+                System.out.println("-----------------------------------------");
             }
         }
     }
